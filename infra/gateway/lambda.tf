@@ -1,6 +1,6 @@
 data "archive_file" "python-lambda-package" {  
   type = "zip"  
-  source_file = "../src/lambda_authorizer.py" 
+  source_file = "../../src/lambda_authorizer.py" 
   output_path = "authorizer.zip"
 }
 
