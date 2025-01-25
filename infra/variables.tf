@@ -78,6 +78,27 @@ variable "security_groups" {
   }]
 }
 
+variable "rds_config" {
+    type = object({
+      name              = string
+      instance_class    = string
+      allocated_storage = number
+      port              = number
+      username          = string
+      engine            = string
+      engine_version    = string
+    })
+    default = {
+      name              = "hack-database"
+      instance_class    = "db.t3.micro"
+      allocated_storage = 5
+      port              = 5432
+      username          = "hack_db_user"
+      engine            = "postgres"
+      engine_version    = "14.13"
+    }
+}
+
 variable "cluster_config" {
   type = object({
     name    = string
