@@ -89,7 +89,7 @@ resource "aws_security_group" "ec2-rds-security-group" {
 resource "aws_instance" "rds-instance" {
   ami                         = "ami-066784287e358dad1" # <https://cloud-images.ubuntu.com/locator/ec2/> 
   instance_type               = "t2.micro"
-  subnet_id                   = aws_subnet.public-subnet[0]
+  subnet_id                   = aws_subnet.public-subnet[0].id
   associate_public_ip_address = true # must be public
   key_name                    = "vockey" # name from FIAP
   iam_instance_profile        = "LabInstanceProfile" # name from FIAP
