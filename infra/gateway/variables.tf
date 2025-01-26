@@ -23,13 +23,13 @@ variable "networking" {
   }
 }
 
-variable "fastfood_aws_access_key_id" {
+variable "hack_aws_access_key_id" {
   description = "Load Balancer DNS"
   type        = string
   sensitive   = true
 }
 
-variable "fastfood_aws_secret_access_key" {
+variable "hack_aws_secret_access_key" {
   description = "Load Balancer DNS"
   type        = string
   sensitive   = true

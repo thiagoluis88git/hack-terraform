@@ -1,12 +1,12 @@
 resource "aws_api_gateway_vpc_link" "main-uploader" {
-  name        = "fastfood_uploader_gateway_vpclink"
-  description = "Fastfood Gateway VPC Link."
+  name        = "hack_uploader_gateway_vpclink"
+  description = "hack Gateway VPC Link."
   target_arns = [var.load_balancer_arn_uploader]
 }
 
 resource "aws_api_gateway_rest_api" "main-uploader" {
-  name        = "fastfood_uploader_gateway"
-  description = "Fastfood Gateway used for EKS."
+  name        = "hack_uploader_gateway"
+  description = "hack Gateway used for EKS."
   endpoint_configuration {
     types = ["REGIONAL"]
   }
