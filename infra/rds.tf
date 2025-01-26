@@ -17,7 +17,7 @@ resource "aws_db_parameter_group" "rds-parameter-group" {
   }
 }
 
-resource "aws_db_instance" "fastfood-database" {
+resource "aws_db_instance" "hack-database" {
   identifier             = var.rds_config.name
   instance_class         = var.rds_config.instance_class
   allocated_storage      = var.rds_config.allocated_storage
