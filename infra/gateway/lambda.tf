@@ -15,8 +15,8 @@ resource "aws_lambda_function" "lambda-authorizer" {
 
     environment {
       variables = {
-        fastfood_aws_access_key_id = var.fastfood_aws_access_key_id
-        fastfood_aws_secret_access_key = var.fastfood_aws_secret_access_key
+        aws_access_key_id = var.hack_aws_access_key_id
+        aws_secret_access_key = var.hack_aws_secret_access_key
       }
    }
 }

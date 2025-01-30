@@ -1,6 +1,6 @@
 // Cognito for customer
-resource "aws_cognito_user_pool" "fastfood-user-pool" {
-  name = "fastfood-user-pool"
+resource "aws_cognito_user_pool" "hack-user-pool" {
+  name = "hack-user-pool"
 
   mfa_configuration = "OFF"
   auto_verified_attributes = ["email"]
@@ -36,10 +36,10 @@ resource "aws_cognito_user_pool" "fastfood-user-pool" {
   }
 }
 
-resource "aws_cognito_user_pool_client" "fastfood-client" {
-  name = "fastfood-client"
+resource "aws_cognito_user_pool_client" "hack-client" {
+  name = "hack-client"
 
-  user_pool_id = aws_cognito_user_pool.fastfood-user-pool.id
+  user_pool_id = aws_cognito_user_pool.hack-user-pool.id
   generate_secret = false
   refresh_token_validity = 90
   prevent_user_existence_errors = "ENABLED"
@@ -50,35 +50,35 @@ resource "aws_cognito_user_pool_client" "fastfood-client" {
   ]
 }
 
-resource "aws_cognito_user_pool_domain" "fastfood-domain" {
-  domain          = "fastfood-domain-ratl"
-  user_pool_id    = aws_cognito_user_pool.fastfood-user-pool.id
+resource "aws_cognito_user_pool_domain" "hack-domain" {
+  domain          = "hack-domain-ratl"
+  user_pool_id    = aws_cognito_user_pool.hack-user-pool.id
 }
 
 resource "aws_cognito_user" "unknown-user" {
-  user_pool_id = aws_cognito_user_pool.fastfood-user-pool.id
+  user_pool_id = aws_cognito_user_pool.hack-user-pool.id
   username     = "unknown-user"
   password     = "unknown-user"
   enabled = true
   attributes = {
     name           = "unknown-user"
-    email          = "unknown-user@fastfood.com"
+    email          = "unknown-user@hack.com"
     email_verified = true
   }
 }
 
 resource "aws_cognito_user_group" "group-users" {
-  user_pool_id = aws_cognito_user_pool.fastfood-user-pool.id
+  user_pool_id = aws_cognito_user_pool.hack-user-pool.id
   name         = "group-users"
 }
 
 resource "aws_cognito_user_group" "group-admin" {
-  user_pool_id = aws_cognito_user_pool.fastfood-user-pool.id
+  user_pool_id = aws_cognito_user_pool.hack-user-pool.id
   name         = "group-admin"
 }
 
 resource "aws_cognito_user_in_group" "usergroup-users" {
-  user_pool_id = aws_cognito_user_pool.fastfood-user-pool.id
+  user_pool_id = aws_cognito_user_pool.hack-user-pool.id
   group_name   = aws_cognito_user_group.group-users.name
   username     = aws_cognito_user.unknown-user.username
 }

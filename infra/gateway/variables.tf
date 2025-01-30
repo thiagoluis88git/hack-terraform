@@ -15,7 +15,7 @@ variable "networking" {
     region          = "us-east-1"
     profile         = "fiap-local"
     vpc_name        = "fiap-vpc"
-    fiap_role       = "arn:aws:iam::199710252834:role/LabRole"
+    fiap_role       = "arn:aws:iam::619104548756:role/LabRole"
     azs             = ["us-east-1a", "us-east-1b"]
     public_subnets  = ["10.0.64.0/24", "10.0.96.0/24"]
     private_subnets = ["10.0.0.0/24", "10.0.32.0/24"]
@@ -23,13 +23,13 @@ variable "networking" {
   }
 }
 
-variable "fastfood_aws_access_key_id" {
+variable "hack_aws_access_key_id" {
   description = "Load Balancer DNS"
   type        = string
   sensitive   = true
 }
 
-variable "fastfood_aws_secret_access_key" {
+variable "hack_aws_secret_access_key" {
   description = "Load Balancer DNS"
   type        = string
   sensitive   = true
