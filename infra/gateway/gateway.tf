@@ -77,8 +77,8 @@ resource "aws_api_gateway_integration" "uploader-api" {
 
   request_parameters = {
     "integration.request.path.proxy"            = "method.request.path.proxy"
-    "integration.request.header.Accept"         = "method.request.header.Accept"
-    "integration.request.header.Content-Type"   = "method.request.header.Content-Type"
+    "integration.request.header.Accept"         = "'method.request.header.Accept'"
+    "integration.request.header.Content-Type"   = "'method.request.header.Content-Type'"
     # "integration.request.header.Authorization" = "method.request.header.Authorization"
   }
 
